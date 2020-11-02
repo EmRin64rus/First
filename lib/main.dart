@@ -20,55 +20,58 @@ class MyBody extends StatelessWidget {
         appBar: AppBar(
           title: Text('Sharikov Message'),
         ),
-        body: Center(
-            child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 300,
-                child: (Text(
-                  'Sharikov Message вход',
-                  style: TextStyle(fontSize: 40, color: Colors.blue[200]),
-                  textAlign: TextAlign.center,
-                )),
-              ),
-              SizedBox(
-                height: 70,
-              ),
-              Container(
-                width: 270,
-                child: (TextFormField(
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'no text';
+        body: Builder(builder: (context) {
+          return Center(
+              child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 300,
+                  child: (Text(
+                    'Sharikov Message вход',
+                    style: TextStyle(fontSize: 40, color: Colors.blue[200]),
+                    textAlign: TextAlign.center,
+                  )),
+                ),
+                SizedBox(
+                  height: 70,
+                ),
+                Container(
+                  width: 270,
+                  child: (TextFormField(
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'no text';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      hintText: 'Логин',
+                    ),
+                    textAlign: TextAlign.center,
+                  )),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {
+                      Navigator.pushNamed(context, '/second');
+                    } else {
+                      Scaffold.of(context).showSnackBar(
+                          SnackBar(content: Text('Processing Data')));
                     }
-                    return null;
                   },
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    hintText: 'Логин',
-                  ),
-                  textAlign: TextAlign.center,
-                )),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    Scaffold.of(context).showSnackBar(
-                        SnackBar(content: Text('Processing Data')));
-                  }
-                  Navigator.pushNamed(context, '/second');
-                },
-                child: Text('Open site'),
-                //  color: Colors.blue[400],
-              ),
-            ],
-          ),
-        )));
+                  child: Text('Open site'),
+                  //  color: Colors.blue[400],
+                ),
+              ],
+            ),
+          ));
+        }));
   }
 }
