@@ -1,8 +1,9 @@
-class Contact {
+// ignore: camel_case_types
+class contactTest {
   String name;
   String testMessage;
   String messageTime;
   String avatar;
 
-  Contact ({this.name,this.testMessage ,this.messageTime , this.avatar});
+  contactTest ({this.name,this.testMessage ,this.messageTime , this.avatar});
 }

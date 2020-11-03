@@ -1,16 +1,15 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/contact.dart';
 
-void main() => runApp(MaterialApp(
-  initialRoute: '/',
-  routes: {'/': (context) => MyTest()},
-));
+void main() =>
+    runApp(MaterialApp(
+      initialRoute: '/',
+      routes: {'/': (context) => MyTest()},
+    ));
 
 class MyTest extends StatelessWidget {
-  final List<Contact> events = [
-    Contact(
+  final List<contactTest> events = [
+    contactTest(
       name: 'TestName',
       testMessage: 'hello world',
       messageTime: DateTime.now().toString(),
@@ -26,11 +25,17 @@ class MyTest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.separated(
-      //  separatorBuilder: (_, __) => Divider(
-        //  color: Colors.blue,
-        ),
-       // itemCount: events.length,
-      ),
-   );
+          itemBuilder: (_, index) =>
+              Card(
+                child: ListTile(
+                  title: Text(events[index].name),
+                  subtitle: Text(
+                      "${events[index].testMessage} , ${events[index]
+                          .messageTime}"),leading:CircleAvatar () ,
+                ),
+              ),
+          separatorBuilder: (_, __) => Divider(),
+          itemCount: events.length),
+    );
   }
 }
