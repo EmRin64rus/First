@@ -13,10 +13,7 @@ class MyTest extends StatelessWidget {
       name: 'TestName',
       testMessage: 'hello world',
       messageTime: DateTime.now().toString(),
-      avatar: Icon(
-        Icons.favorite,
-        color: Colors.red,
-      ).toString(),
+      avatar: CircleAvatar (backgroundColor: Colors.red,).toString(),
     ),
   ];
 
@@ -31,7 +28,7 @@ class MyTest extends StatelessWidget {
                   title: Text(events[index].name),
                   subtitle: Text(
                       "${events[index].testMessage} , ${events[index]
-                          .messageTime}"),leading:CircleAvatar () ,
+                          .messageTime}"),leading: CircleAvatar(),
                 ),
               ),
           separatorBuilder: (_, __) => Divider(),
