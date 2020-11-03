@@ -26,11 +26,11 @@ class MyTest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.separated(
-        separatorBuilder: (_, __) => Divider(
-          color: Colors.blue,
+      //  separatorBuilder: (_, __) => Divider(
+        //  color: Colors.blue,
         ),
-        itemCount: events.length,
+       // itemCount: events.length,
       ),
-    );
+   );
   }
 }
