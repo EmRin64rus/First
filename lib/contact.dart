@@ -3,7 +3,7 @@ class contactTest {
   String name;
   String testMessage;
   String messageTime;
-  String avatar;
+  var avatar;
 
   contactTest ({this.name,this.testMessage ,this.messageTime , this.avatar});
 }
