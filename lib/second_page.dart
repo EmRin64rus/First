@@ -20,7 +20,9 @@ class MyTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Contact List'),
+      ),
       body: ListView.separated(
           itemBuilder: (_, index) => Card(
                 child: ListTile(
@@ -28,6 +30,12 @@ class MyTest extends StatelessWidget {
                   subtitle: Text(
                       "${events[index].testMessage} , ${events[index].messageTime}"),
                   leading: events[index].avatar,
+                  onTap: () {
+                    //      Navigator.pushNamed(
+                    //      context,
+                    //    '/',
+                    //  );
+                  },
                 ),
               ),
           separatorBuilder: (_, __) => Divider(),
