@@ -1,34 +1,36 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_app/contact.dart';
 
+void main() => runApp(MaterialApp(
+  initialRoute: '/',
+  routes: {'/': (context) => MyTest()},
+));
 
-class ContactsPage extends StatefulWidget {
-  @override
-  _ContactsPageState createState() => _ContactsPageState();
-}
-
-class _ContactsPageState extends State<ContactsPage> {
-  final List<String> events = [
-    'events 1',
-    'events 2',
-    'events 3',
-    'events 4',
-    'events 5',
-    'events 6',
-    'events 7',
-    'events 8',
-    'events 9',
+class MyTest extends StatelessWidget {
+  final List<Contact> events = [
+    Contact(
+      name: 'TestName',
+      testMessage: 'hello world',
+      messageTime: DateTime.now().toString(),
+      avatar: Icon(
+        Icons.favorite,
+        color: Colors.red,
+      ).toString(),
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-          children: events
-              .map((e) => Text(
-            e,
-            style: TextStyle(fontSize: 50, color: Colors.green[600]),
-          ))
-              .toList()),
+      appBar: AppBar(),
+      body: ListView.separated(
+        separatorBuilder: (_, __) => Divider(
+          color: Colors.blue,
+        ),
+        itemCount: events.length,
+      ),
     );
   }
 }

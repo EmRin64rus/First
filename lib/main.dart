@@ -5,7 +5,7 @@ void main() => runApp(MaterialApp(
       initialRoute: '/',
       routes: {
         '/': (context) => MyBody(),
-        '/second': (context) => ContactsPage()
+        '/second': (context) => MyTest()
       },
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
