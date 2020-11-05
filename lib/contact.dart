@@ -1,4 +1,3 @@
-
 class ContactTest {
   String name;
   String testMessage;

@@ -3,9 +3,6 @@ import 'package:flutter_app/contact.dart';
 import 'package:flutter_app/conatct_add.dart';
 
 
-
-void main () => runApp (MaterialApp()) ;
-
 class MyTest extends StatelessWidget {
   final List<ContactTest> events = [
     ContactTest(
@@ -13,7 +10,7 @@ class MyTest extends StatelessWidget {
       testMessage: 'hello world',
       messageTime: DateTime.now().toString(),
       avatarUrl:
-      "https://sun9-18.userapi.com/c849424/v849424976/d8416/8Hfpgcy60GY.jpg",
+          "https://sun9-18.userapi.com/c849424/v849424976/d8416/8Hfpgcy60GY.jpg",
     ),
   ];
 
