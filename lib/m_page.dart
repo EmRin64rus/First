@@ -9,11 +9,11 @@ void main() =>
     ));
 
 class TestMessage extends StatelessWidget {
-  final List<contactTest> events =
+  final List<ContactTest> events =
 
   [
 
-    contactTest(
+    ContactTest(
       name: 'Test Name',
     )
 
