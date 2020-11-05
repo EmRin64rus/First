@@ -1,4 +1,4 @@
-
+import 'package:flutter_app/m_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/second_page.dart';
 
@@ -6,7 +6,8 @@ void main() => runApp(MaterialApp(
       initialRoute: '/',
       routes: {
         '/': (context) => MyBody(),
-        '/second': (context) => MyTest()
+        '/second': (context) => MyTest() ,
+        '/page': (context) => TestMessage () ,
       },
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
