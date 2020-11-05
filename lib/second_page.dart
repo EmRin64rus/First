@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/contact.dart';
+import 'package:flutter_app/conatct_add.dart';
 
-void main() => runApp(MaterialApp(
-      initialRoute: '/',
-      routes: {'/': (context) => MyTest()},
-    ));
+
+
+void main () => runApp (MaterialApp()) ;
 
 class MyTest extends StatelessWidget {
-  final List<contactTest> events = [
-    contactTest(
-        name: 'TestName',
-        testMessage: 'hello world',
-        messageTime: DateTime.now().toString(),
-        avatar:  CircleAvatar(
-            backgroundImage: NetworkImage(
-                "https://sun9-18.userapi.com/c849424/v849424976/d8416/8Hfpgcy60GY.jpg"),
-          ),
-        ),
+  final List<ContactTest> events = [
+    ContactTest(
+      name: 'TestName',
+      testMessage: 'hello world',
+      messageTime: DateTime.now().toString(),
+      avatarUrl:
+      "https://sun9-18.userapi.com/c849424/v849424976/d8416/8Hfpgcy60GY.jpg",
+    ),
   ];
 
   @override
@@ -27,30 +25,41 @@ class MyTest extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Contact List'),
-            IconButton(icon: Icon(Icons.add), onPressed: () {})
+            IconButton(icon: Icon(Icons.add), onPressed: () {Navigator.pushNamed(context, '/Contacts_add');})
           ],
         ),
       ),
       body: ListView.separated(
-          itemBuilder: (_, index) => Card(
-                child: ListTile(
-                  title: Text(
-                    events[index].name,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  subtitle: Text(
-                      "${events[index].testMessage} , ${events[index].messageTime}"),
-                  leading:ConstrainedBox(constraints: BoxConstraints (maxWidth: 100),child: events[index].avatar,) ,
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/page',
-                    );
-                  },
+        itemBuilder: (_, index) => Card(
+          child: ListTile(
+            contentPadding: ListTileTheme.of(context).contentPadding,
+            title: Text(
+              events[index].name,
+              style: TextStyle(fontSize: 20),
+            ),
+            subtitle: Text(
+              "${events[index].testMessage} , ${events[index].messageTime}",
+            ),
+            leading: AspectRatio(
+              aspectRatio: 1,
+              child: ClipOval(
+                child: Image.network(
+                  events[index].avatarUrl,
+                  fit: BoxFit.cover,
                 ),
               ),
-          separatorBuilder: (_, __) => Divider(),
-          itemCount: events.length),
+            ),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/page',
+              );
+            },
+          ),
+        ),
+        separatorBuilder: (_, __) => Divider(),
+        itemCount: events.length,
+      ),
     );
   }
 }

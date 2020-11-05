@@ -1,6 +1,9 @@
+
 import 'package:flutter_app/m_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/second_page.dart';
+import 'package:flutter_app/conatct_add.dart';
+
 
 void main() => runApp(MaterialApp(
       initialRoute: '/',
@@ -8,6 +11,7 @@ void main() => runApp(MaterialApp(
         '/': (context) => MyBody(),
         '/second': (context) => MyTest() ,
         '/page': (context) => TestMessage () ,
+        '/Contacts_add': (context) => ContactsAdd(),
       },
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),

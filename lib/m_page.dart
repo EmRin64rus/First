@@ -1,6 +1,6 @@
+
 import 'package:flutter_app/contact.dart';
 import 'package:flutter/material.dart';
-
 
 void main() =>
     runApp(MaterialApp(
@@ -9,16 +9,16 @@ void main() =>
     ));
 
 class TestMessage extends StatelessWidget {
-  final List<contactTest> events =
+  final List<ContactTest> events =
 
   [
 
-    contactTest(
+    ContactTest(
       name: 'Test Name',
     )
 
   ]
-;
+  ;
 
   @override
   Widget build(BuildContext context) {
